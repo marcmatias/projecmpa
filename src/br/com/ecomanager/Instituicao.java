@@ -42,5 +42,6 @@ public class Instituicao {
 		return ArrayList;
 	}
 	
-	
+
+	//método adicionar bloco
 }

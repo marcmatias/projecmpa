@@ -39,5 +39,6 @@ public class Bloco {
 	public List<Sala> getArrayList() {
 		return ArrayList;
 	}
-	
+
+	//método adicior sala
 }
