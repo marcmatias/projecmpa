@@ -44,7 +44,5 @@ public class Sala {
 	public void setConsumo(Consumo consumo) {
 		this.consumo = consumo;
 	}
-	
-
-	
+		
 }

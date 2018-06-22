@@ -34,7 +34,7 @@ public class ConsoleUI {
 			exibirMenuPrincipal();
 			break;
 		case 3:
-			removerContato();
+			removerSala();
 			exibirMenuPrincipal();
 			break;
 		case 4:
@@ -43,7 +43,7 @@ public class ConsoleUI {
 			break;
 			
 		default:
-			System.out.println("Opção \"(" + opcao + ")\" inválida! \nTente novamente!"  );
+			System.out.println("Opcao \"(" + opcao + ")\" invalida! \nTente novamente!"  );
 			break;
 		}
 		
@@ -71,11 +71,11 @@ public class ConsoleUI {
 		
 		sala.setConsumo(consumo);
 		
-		Sistema.getInstance().cadastrarContato(sala);
+		Sistema.getInstance().cadastrarSala(sala);
 	}
 
 	private static void listarSalas() {
-		List<Sala> salas = Sistema.getInstance().obterContatos();
+		List<Sala> salas = Sistema.getInstance().obterSalas();
 		
 		for (Sala s : salas) {
 			System.out.print("ID: " + s.getId() + " - ");
@@ -85,7 +85,7 @@ public class ConsoleUI {
 		}
 	}
 
-	private static void removerContato() {
+	private static void removerSala() {
 		
 		System.out.print("Digite o ID do contato a ser removido: ");
 		Long id = scanner.nextLong();

@@ -21,31 +21,31 @@ public class Sistema {
 		return instance;
 	}
 	
-	public void cadastrarContato( Sala contato ){
+	public void cadastrarSala( Sala sala ){
 		em.getTransaction().begin();
-		em.persist(contato);
+		em.persist(sala);
 		em.getTransaction().commit();
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Sala> obterContatos(){
+	public List<Sala> obterSalas(){
 		Query query = em.createQuery("Select c from Sala c");
 		return query.getResultList();
 	}
 	
-	public void removerContato( Sala contato ){
+	public void removerContato( Sala sala ){
 		em.getTransaction().begin();
 		
-		Sala aRemover = em.find(Sala.class, contato.getId());
+		Sala aRemover = em.find(Sala.class, sala.getId());
 		em.remove(aRemover);
 		
 		em.getTransaction().commit();
 	}
 	
 	
-	public void atualizarContato( Sala contato ){
+	public void atualizarContato( Sala sala ){
 		em.getTransaction().begin();
-		em.merge(contato);
+		em.merge(sala);
 		em.getTransaction().commit();
 	}
 	
