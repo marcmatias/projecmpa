@@ -21,7 +21,7 @@ public class Sistema {
 		return instance;
 	}
 	
-	public void cadastrarSala( Sala sala ){
+	public synchronized void cadastrarSala( Sala sala ){
 		em.getTransaction().begin();
 		em.persist(sala);
 		em.getTransaction().commit();
@@ -33,7 +33,7 @@ public class Sistema {
 		return query.getResultList();
 	}
 	
-	public void removerContato( Sala sala ){
+	public synchronized void removerSala( Sala sala ){
 		em.getTransaction().begin();
 		
 		Sala aRemover = em.find(Sala.class, sala.getId());
@@ -43,9 +43,13 @@ public class Sistema {
 	}
 	
 	
-	public void atualizarContato( Sala sala ){
+	public synchronized void atualizarSala( Sala sala, String nome, Consumo consumo, String kwh, String data){
 		em.getTransaction().begin();
-		em.merge(sala);
+		sala = em.find(Sala.class, sala.getId());
+		consumo = em.find(Consumo.class, consumo.getId());
+		sala.setNome(nome);
+		consumo.setKwh(kwh);
+		consumo.setData(data);
 		em.getTransaction().commit();
 	}
 	

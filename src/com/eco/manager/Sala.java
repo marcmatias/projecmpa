@@ -1,7 +1,8 @@
 package com.eco.manager;
 
+
+
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +16,11 @@ public class Sala {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="nm_contato")
 	private String nome;
 	
-	@OneToOne(cascade={CascadeType.ALL})
-	private Consumo consumo;
+	@OneToOne(cascade={CascadeType.ALL})	
+    private Consumo consumo;
+
 	
 	public String getNome() {
 		return nome;

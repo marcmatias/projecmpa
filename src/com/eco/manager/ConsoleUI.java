@@ -18,13 +18,14 @@ public class ConsoleUI {
 		System.out.println("O que deseja fazer?");
 		System.out.println("(1) Adicionar nova sala;");
 		System.out.println("(2) Listar todos as salas;");
-		System.out.println("(3) Remover sala por id;");
-		System.out.println("(4) Sair;");
+		System.out.println("(3) Editar Sala por id;");
+		System.out.println("(4) Remover sala por id;");
+		System.out.println("(5) Sair;");
 		
 		int opcao = scanner.nextInt();
 		scanner.nextLine();
 		
-		switch ( opcao ) {
+		switch ( opcao ) {	
 		case 1:
 			adicionarSala();
 			exibirMenuPrincipal();
@@ -34,11 +35,15 @@ public class ConsoleUI {
 			exibirMenuPrincipal();
 			break;
 		case 3:
-			removerSala();
+			atualizarSala();
 			exibirMenuPrincipal();
 			break;
 		case 4:
-			System.out.println("Adeus!");
+			removerSala();
+			exibirMenuPrincipal();
+			break;
+		case 5:
+			System.out.println("End");
 			System.exit(0);
 			break;
 			
@@ -81,19 +86,43 @@ public class ConsoleUI {
 			System.out.print("ID: " + s.getId() + " - ");
 			System.out.print("Nome: " + s.getNome() + " - ");
 			System.out.print("Consumo: (" + s.getConsumo().getKwh() + ") ");
-			System.out.println(s.getConsumo().getKwh());
+			System.out.print(s.getConsumo().getKwh()+ " - ");
+			System.out.println("Data: (" + s.getConsumo().getData() + ") ");
 		}
 	}
 
+	private static void atualizarSala() {
+		
+		System.out.print("Digite o ID da sala a ser editada: ");
+		Long id = scanner.nextLong();
+		scanner.nextLine();
+				
+		System.out.print("Digite o NOME da sala a ser editada: ");
+		String nome = scanner.nextLine();
+		
+		System.out.print("Digite o CONSUMO da sala a ser editada: ");
+		String kwh = scanner.nextLine();
+//		scanner.nextLine();
+
+		System.out.print("Digite a DATA da sala a ser editada: ");
+		String data = scanner.nextLine();
+		
+		Sala sala = new Sala();
+		Consumo consumo = new Consumo();
+		sala.setId(id);
+		consumo.setId(id);
+		Sistema.getInstance().atualizarSala(sala, nome, consumo, kwh, data);
+	}		
+	
 	private static void removerSala() {
 		
-		System.out.print("Digite o ID do contato a ser removido: ");
+		System.out.print("Digite o ID da sala a ser removida: ");
 		Long id = scanner.nextLong();
 		scanner.nextLine();
 		
 		Sala c = new Sala();
 		c.setId(id);
-		Sistema.getInstance().removerContato(c);
+		Sistema.getInstance().removerSala(c);
 	}		
 	
 }

@@ -5,8 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//import org.h2.store.Data;
 
+//import org.h2.store.Data;
 @Entity
 public class Consumo {
 

@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.persistence.jpars_2.7.1.v20171221-bd47e8f.jar"/>
 	<classpathentry kind="lib" path="lib/org.glassfish.javax.json_1.0.4.v201311181159.jar"/>
 	<classpathentry kind="lib" path="lib/h2-1.4.197.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
